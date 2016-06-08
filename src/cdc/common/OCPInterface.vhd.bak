@@ -35,13 +35,13 @@ USE work.ocp.all;
 
 PACKAGE OCPInterface IS
 
---	CONSTANT OCPBurstMasterIdle_c : ocp_burst_m := (OCP_CMD_IDLE,
---												   (OTHERS => '0'),
---												   (OTHERS => '0'),
---												   (OTHERS => '0'),
+	CONSTANT OCPBurstMasterIdle_c : ocp_burst_m := (OCP_CMD_IDLE,
+												   (OTHERS => '0'),
+												   (OTHERS => '0'),
+												   (OTHERS => '0'),
 
---	CONSTANT OCPBurstSlaveIdle_c : ocp_burst_s := (OCP_RESP_NULL,
---												  (OTHERS => '0'),
---												  '0',
---												  '0');
+	CONSTANT OCPBurstSlaveIdle_c : ocp_burst_s := (OCP_RESP_NULL,
+												  (OTHERS => '0'),
+												  '0',
+												  '0');
 END OCPInterface;

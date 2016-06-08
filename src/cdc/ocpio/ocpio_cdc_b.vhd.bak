@@ -79,12 +79,7 @@ BEGIN
     BEGIN
         state_next	<= state;
         loadEnable	<= '0';
---		syncOut		<= OCPIOMasterIdle_c;
-		syncOut.MCmd <= OCP_CMD_IDLE;
-		syncOut.MData <= (others => '0');
-		syncOut.MAddr <= (others => '0');
-		syncOut.MByteEn <= (others => '0');
-		syncOut.MRespAccept <= '0';
+		syncOut		<= OCPIOMasterIdle_c;
 		ack_next	<= ack;
 	
         CASE state IS
@@ -152,10 +147,7 @@ BEGIN
             req         <= '0';
             req_next    <= '0';
             ack         <= '0';
---            slaveData   <= ocpioslaveidle_c;
-				slaveData.SResp <= OCP_RESP_NULL;
-				slaveData.SData <= (others => '0');
-				slaveData.SCmdAccept <= '0';
+            slaveData   <= ocpioslaveidle_c;
         ELSIF rising_edge(clk) THEN
             state       <= state_next;
             req_prev    <= req;
@@ -189,13 +181,8 @@ BEGIN
     FSM : PROCESS(state, syncIn, asyncIn, req)
     BEGIN
 		state_next 	<= state;
---		syncOut     <= OCPIOMasterIdle_c;
-		syncOut.MCmd <= OCP_CMD_IDLE;
-		syncOut.MAddr <= (others => '0');
-		syncOut.MData <=(others => '0');
-		syncOut.MByteEn <= (others => '0');
-		syncOut.MRespAccept <= '0';
-		
+		syncOut     <= OCPIOMasterIdle_c;
+
 		CASE state IS
 			WHEN Idle_state =>
 				ack <= '0';
