@@ -145,7 +145,8 @@ BEGIN
             WHEN ReadBlock =>
 				-- Write each word in buffer back to OCP Master
 				asyncOut.RegAddr	<= std_logic_vector(RegAddr);
-                syncOut			<= asyncIn.data;
+                syncOut.SData			<= asyncIn.data.SData;
+                syncOut.SResp			<= asyncIn.data.SResp;
                 RegAddr_next	<= RegAddr + to_unsigned(1,RegAddr'LENGTH);
                 IF RegAddr = to_unsigned(burstSize-1, RegAddr'LENGTH) THEN
 					state_next		<= IDLE_state;

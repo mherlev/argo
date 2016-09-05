@@ -107,6 +107,7 @@ BEGIN
 						--or commence buffering read data
 						state_next		<= ReadBlockWait;
 						syncOut.MCmd	<= OCP_CMD_RD;
+						syncOut.MAddr		<= asyncIn.data.MAddr;
 						IF syncIn.SCmdAccept = '1' THEN
 							state_next	<= ReadBlock;
 						END IF;
@@ -131,6 +132,7 @@ BEGIN
 			--------------------------------------------------------------------
 			WHEN ReadBlockWait =>
 				syncOut.MCmd <= OCP_CMD_RD;
+				syncOut.MAddr		<= asyncIn.data.MAddr;
 				IF syncIn.SCmdAccept = '1' THEN
 					state_next <= ReadBlock;
 				END IF;

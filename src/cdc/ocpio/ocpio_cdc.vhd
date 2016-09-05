@@ -34,7 +34,7 @@ USE work.OCPIOCDC_types.all;
 USE work.ocp.all;
 ENTITY OCPIOCDC IS
 	PORT(   input   : IN	OCPIOCDCIn_r;
-		output  : OUT   OCPIOCDCOut_r
+			output  : OUT   OCPIOCDCOut_r
 	);
 
 END ENTITY OCPIOCDC;
